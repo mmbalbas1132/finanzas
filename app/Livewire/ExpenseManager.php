@@ -8,6 +8,6 @@ class ExpenseManager extends Component
 {
     public function render()
     {
-        return view('livewire.expense-manager');
+        return view('livewire.expense-manager')->layout('layouts.app');
     }
 }

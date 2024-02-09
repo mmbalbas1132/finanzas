@@ -8,6 +8,6 @@ class IncomeManager extends Component
 {
     public function render()
     {
-        return view('livewire.income-manager');
+        return view('livewire.income-manager')->layout('layouts.app');
     }
 }
