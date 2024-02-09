@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Livewire\CategoryManager; // Asegúrate de usar el namespace correcto
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +26,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/manage-expenses', function () {
+    return view('manage-expenses');
+})->middleware(['auth']); // Asegúrate de añadir cualquier middleware necesario, como autenticación.
+
+Route::get('/categories', CategoryManager::class)->name('categories')->middleware('auth');
+// Apuntar correctamente a la vista en caso de usar un namespace o grupo de rutas.
+Route::get('/categories/manage', function () {
+    return view('categories.manage');
+})->middleware(['auth']); // Suponiendo que esta página requiera autenticación.
